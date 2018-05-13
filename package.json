@@ -21,5 +21,8 @@
   "homepage": "https://github.com/HZooly/create-bot-discord#readme",
   "bin": {
     "create-discord-bot": "./cli.js"
+  },
+  "dependencies": {
+    "inquirer": "^5.2.0"
   }
 }
