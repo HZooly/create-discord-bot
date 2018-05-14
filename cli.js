@@ -29,13 +29,19 @@ inquirer.prompt(questions).then(answer => {
         console.log('Creating new folder...')
         fs.writeFile(`${dir}/package.json`, builders.getPackage(dir), err => {
             if (err)
-                return console.log('Error when creating package.json')
+                return console.log('Error at creating package.json')
         })
 
-        console.log('Creating files...')
+        console.log('Creating bot.js...')
         fs.writeFile(`${dir}/bot.js`, builders.getScript(answer.token, dir), err => {
             if (err)
-                return console.log(err)
+                return console.log('Error at bot.js creation')
+        })
+
+        console.log('Writing README.md')
+        fs.writeFile(`${dir}/README.md`, builders.getReadme(dir), err => {
+            if(err)
+                return console.log('Error at README creation')
         })
 
         console.log('Installing dependencies...')

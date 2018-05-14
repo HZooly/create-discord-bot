@@ -20,5 +20,10 @@ client.on('ready', () => {
     console.log('Bot is ready!')
 })
 client.login('${token}');`
+    },
+
+    getReadme: function(botName) {
+        return `# ${botName}
+Discord Bot generated with [create-discord-bot](https://github.com/HZooly/create-discord-bot)`
     }
 }
