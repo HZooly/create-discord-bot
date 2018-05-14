@@ -15,6 +15,7 @@ Tired of Googling "How to create Discord Bot"? Use this tool and easily bootstra
 Follow the instructions, this is easy!
 
 ## Generated project
+```
 generated-project
 ├── README.md
 ├── node_modules
@@ -22,3 +23,4 @@ generated-project
 ├── package-lock.json
 ├── .gitignore
 └──bot.js
+```
