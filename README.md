@@ -19,10 +19,10 @@ Follow the instructions, this is easy!
 ## Generated project
 ```
 generated-project
-├── README.md
 ├── node_modules
+├── bot.js
 ├── package.json
 ├── package-lock.json
-├── .gitignore
-└──bot.js
+├── README.md
+└── .gitignore
 ```
