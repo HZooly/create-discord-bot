@@ -6,7 +6,7 @@
 ## About
 Tired of Googling "How to create Discord Bot"? Use this tool and easily bootstrap your modern Discord Bot ✨
 
-![](https://s1.gifyu.com/images/KAP.gif)
+![](https://i.imgur.com/FrXL7qi.gif)
 
 ## Install
 `$ npm install -g create-discord-bot`
