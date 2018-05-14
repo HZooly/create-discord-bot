@@ -13,13 +13,14 @@ module.exports = {
     },
 
     getScript: function (token, botName)  {
+        const tokenValue = token.length > 0 ? token : 'your-token-from-discord-api'
         return `/* ${botName} generated with create-discord-bot CLI */
 const Discord = require('discord.js')
 const client = new Discord.Client()
 client.on('ready', () => {
     console.log('Bot is ready!')
 })
-client.login('${token}');`
+client.login('${tokenValue}');`
     },
 
     getReadme: function (botName) {

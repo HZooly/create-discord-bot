@@ -21,7 +21,7 @@ const questions = [{
     {
         type: 'password',
         name: 'token',
-        message: 'Enter your Discord token'
+        message: 'Enter your Discord token (press enter for empty)'
     }
 ]
 
