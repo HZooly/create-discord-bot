@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+const fs = require('fs')
 const inquirer = require('inquirer')
 const {
     exec
-} = require('child_process');
+} = require('child_process')
+const logSymbols = require('log-symbols')
 
 const builders = require('./builders')
+const log = console.log;
 
-console.log('Welcome to the Discord Bot Creator !')
+log('Welcome to the Discord Bot Creator !')
 
 const questions = [{
         type: 'input',
@@ -23,36 +25,36 @@ const questions = [{
 ]
 
 inquirer.prompt(questions).then(answer => {
-    let dir = answer.botName;
+    let dir = answer.botName
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir)
-        console.log('Creating new folder...')
+        log(`${logSymbols.info} Creating new folder...`)
         fs.writeFile(`${dir}/package.json`, builders.getPackage(dir), err => {
             if (err)
-                return console.log('Error at creating package.json')
+                return log(`${logSymbols.error} Error at creating package.json`)
         })
 
-        console.log('Creating bot.js...')
+        log(`${logSymbols.info} Creating bot.js...`)
         fs.writeFile(`${dir}/bot.js`, builders.getScript(answer.token, dir), err => {
             if (err)
-                return console.log('Error at bot.js creation')
+                return log(`${logSymbols.error} Error at bot.js creation`)
         })
 
-        console.log('Generating .gitignore')
+        log(`${logSymbols.info} Generating .gitignore...`)
         fs.writeFile(`${dir}/.gitignore`, builders.getGitignore(dir), err => {
             if (err)
-                return console.log('Error at .gitignore creation')
+                return log(`${logSymbols.error} Error at .gitignore creation`)
         })
 
-        console.log('Writing README.md')
+        log(`${logSymbols.info} Writing README.md...`)
         fs.writeFile(`${dir}/README.md`, builders.getReadme(dir), err => {
             if (err)
-                return console.log('Error at README creation')
+                return log(`${logSymbols.error} Error at README creation`)
         })
 
-        console.log('Installing dependencies...')
+        log(`${logSymbols.info} Installing dependencies...`)
         exec(`cd ${dir} && npm install`, (err, stdout, stderr) => {
-            console.log('Done!')
+            log(`${logSymbols.success} Done!`)
         })
     }
 })

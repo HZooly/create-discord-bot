@@ -23,6 +23,7 @@
     "create-discord-bot": "./cli.js"
   },
   "dependencies": {
-    "inquirer": "^5.2.0"
+    "inquirer": "^5.2.0",
+    "log-symbols": "^2.2.0"
   }
 }
