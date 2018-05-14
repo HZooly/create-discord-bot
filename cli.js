@@ -38,9 +38,15 @@ inquirer.prompt(questions).then(answer => {
                 return console.log('Error at bot.js creation')
         })
 
+        console.log('Generating .gitignore')
+        fs.writeFile(`${dir}/.gitignore`, builders.getGitignore(dir), err => {
+            if (err)
+                return console.log('Error at .gitignore creation')
+        })
+
         console.log('Writing README.md')
         fs.writeFile(`${dir}/README.md`, builders.getReadme(dir), err => {
-            if(err)
+            if (err)
                 return console.log('Error at README creation')
         })
 

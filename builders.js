@@ -12,7 +12,7 @@ module.exports = {
 }`
     },
 
-    getScript: function(token, botName) {
+    getScript: function (token, botName)  {
         return `/* ${botName} generated with create-discord-bot CLI */
 const Discord = require('discord.js')
 const client = new Discord.Client()
@@ -22,8 +22,12 @@ client.on('ready', () => {
 client.login('${token}');`
     },
 
-    getReadme: function(botName) {
+    getReadme: function (botName) {
         return `# ${botName}
 Discord Bot generated with [create-discord-bot](https://github.com/HZooly/create-discord-bot)`
+    },
+
+    getGitignore: function () {
+        return '/node_modules'
     }
 }
