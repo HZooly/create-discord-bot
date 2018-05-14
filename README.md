@@ -1,4 +1,4 @@
-# create-bot-discord
+# create-discord-bot
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 🚀 Create Discord Bot with CLI
