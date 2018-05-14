@@ -6,6 +6,7 @@ const {
     exec
 } = require('child_process')
 const logSymbols = require('log-symbols')
+const validate = require("validate-npm-package-name")
 
 const builders = require('./builders')
 const log = console.log;
@@ -25,6 +26,15 @@ const questions = [{
 ]
 
 inquirer.prompt(questions).then(answer => {
+    const validated = validate(answer.botName)
+
+    if (validated.errors !== undefined) {
+        validated.errors.forEach(error => {
+            log(`${logSymbols.error} ${error}`)
+        })
+        return
+    }
+
     let dir = answer.botName
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir)
