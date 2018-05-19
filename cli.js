@@ -16,12 +16,12 @@ log('Welcome to the Discord Bot Creator !')
 const questions = [{
         type: 'input',
         name: 'botName',
-        message: 'What will be your bot name ?'
+        message: 'What will be your bot\'s name ?'
     },
     {
         type: 'password',
         name: 'token',
-        message: 'Enter your Discord token (press enter for empty)'
+        message: 'Enter your Discord\'s token (press enter for empty)'
     }
 ]
 
