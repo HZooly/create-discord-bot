@@ -4,7 +4,7 @@ module.exports = {
     "name": "${dirName}",
     "version": "0.0.1",
     "description": "Bot created with create-discord-bot CLI",
-    "main": "cli.js",
+    "main": "bot.js",
     "author": "create-discord-bot",
     "dependencies": {
         "discord.js": "^11.3.2"
