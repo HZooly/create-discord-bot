@@ -9,7 +9,7 @@ const logSymbols = require('log-symbols')
 const validate = require("validate-npm-package-name")
 
 const builders = require('./builders')
-const log = console.log;
+const log = console.log
 
 log('Welcome to the Discord Bot Creator !')
 
