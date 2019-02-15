@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
-const inquirer = require('inquirer')
-const {
-    exec
-} = require('child_process')
+const qoa = require('qoa')
+const { exec } = require('child_process')
 const logSymbols = require('log-symbols')
 const validate = require("validate-npm-package-name")
 
@@ -13,19 +11,20 @@ const log = console.log
 
 log('Welcome to the Discord Bot Creator !')
 
-const questions = [{
+const questions = [
+    {
         type: 'input',
-        name: 'botName',
-        message: 'What will be your bot\'s name ?'
+        query: 'What will be your bot\'s name ?',
+        handle: 'botName'
     },
     {
-        type: 'password',
-        name: 'token',
-        message: 'Enter your Discord\'s token (press enter for empty)'
+        type: 'secure',
+        query: 'Enter your Discord\'s token (press enter for empty)',
+        handle: 'token'
     }
 ]
 
-inquirer.prompt(questions).then(answer => {
+qoa.prompt(questions).then(answer => {
     const validated = validate(answer.botName)
 
     if (validated.errors !== undefined) {
