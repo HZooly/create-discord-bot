@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import * as fs from 'fs'
+import { getPackage, getGitignore, getReadme, getScript } from './builders'
 import { exec } from 'child_process'
 
 const logSymbols = require('log-symbols')
 const validate = require("validate-npm-package-name")
 const qoa = require('qoa')
 
-const builders = require('./builders')
 const log = console.log
 
 log('Welcome to the Discord Bot Creator !')
@@ -48,25 +48,25 @@ qoa.prompt(questions).then((answer: answer) => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir)
         log(`${logSymbols.info} Creating new folder...`)
-        fs.writeFile(`${dir}/package.json`, builders.getPackage(dir), err => {
+        fs.writeFile(`${dir}/package.json`, getPackage(dir), err => {
             if (err)
                 return log(`${logSymbols.error} Error at creating package.json`)
         })
 
         log(`${logSymbols.info} Creating bot.js...`)
-        fs.writeFile(`${dir}/bot.js`, builders.getScript(answer.token, dir), err => {
+        fs.writeFile(`${dir}/bot.js`, getScript(answer.token, dir), err => {
             if (err)
                 return log(`${logSymbols.error} Error at bot.js creation`)
         })
 
         log(`${logSymbols.info} Generating .gitignore...`)
-        fs.writeFile(`${dir}/.gitignore`, builders.getGitignore(dir), err => {
+        fs.writeFile(`${dir}/.gitignore`, getGitignore(), err => {
             if (err)
                 return log(`${logSymbols.error} Error at .gitignore creation`)
         })
 
         log(`${logSymbols.info} Writing README.md...`)
-        fs.writeFile(`${dir}/README.md`, builders.getReadme(dir), err => {
+        fs.writeFile(`${dir}/README.md`, getReadme(dir), err => {
             if (err)
                 return log(`${logSymbols.error} Error at README creation`)
         })
