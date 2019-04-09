@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "0.0.4,
+  "version": "0.0.4",
   "description": "Create Discord Bot with CLI",
   "main": "dist/cli.js",
   "scripts": {
