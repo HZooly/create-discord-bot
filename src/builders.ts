@@ -1,14 +1,14 @@
 export function getPackage (dirName: string) {
     return `{
-    "name": "${dirName}",
-    "version": "0.0.1",
-    "description": "Bot created with create-discord-bot CLI",
-    "main": "bot.js",
-    "author": "create-discord-bot",
-    "dependencies": {
-        "discord.js": "^11.3.2"
-    }
-}`
+    	"name": "${dirName}",
+    	"version": "0.0.1",
+    	"description": "Bot created with create-discord-bot CLI",
+    	"main": "bot.js",
+    	"author": "create-discord-bot",
+    	"dependencies": {
+        	"discord.js": "^11.3.2"
+    	}
+	}`
 }
 
 export function getScript (token: string, botName: string)  {
@@ -24,9 +24,9 @@ export function getScript (token: string, botName: string)  {
 
 export function getReadme (botName: string) {
     return `# ${botName}
-	Discord Bot generated with [create-discord-bot](https://github.com/HZooly/create-discord-bot)
+		Discord Bot generated with [create-discord-bot](https://github.com/HZooly/create-discord-bot)
 
-	To get the Bot invitation link, you can use [discord-bot-invitation](https://github.com/HZooly/discord-bot-invitation)
+		To get the Bot invitation link, you can use [discord-bot-invitation](https://github.com/HZooly/discord-bot-invitation)
 	`
 }
 
