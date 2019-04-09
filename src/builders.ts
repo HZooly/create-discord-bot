@@ -16,10 +16,10 @@ export function getScript (token: string, botName: string)  {
     return `/* ${botName} generated with create-discord-bot CLI */
     const Discord = require('discord.js')
 	const client = new Discord.Client()
-	client.on('ready', () => {
-		console.log('Bot is ready!')
-	})
-	client.login('${tokenValue}');`
+    client.on('ready', () => {
+	    console.log('Bot is ready!')
+    })
+    client.login('${tokenValue}');`
 }
 
 export function getReadme (botName: string) {
