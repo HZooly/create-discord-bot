@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/HZooly/create-discord-bot#readme",
   "bin": {
-    "create-discord-bot": "./cli.js"
+    "create-discord-bot": "./dist/cli.js"
   },
   "dependencies": {
     "log-symbols": "^2.2.0",
