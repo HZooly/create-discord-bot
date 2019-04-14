@@ -1,5 +1,5 @@
-export function getPackage (dirName: string) {
-    return `{
+export function getPackage(dirName: string) {
+  return `{
     	"name": "${dirName}",
     	"version": "0.0.1",
     	"description": "Bot created with create-discord-bot CLI",
@@ -11,9 +11,9 @@ export function getPackage (dirName: string) {
 	}`
 }
 
-export function getScript (token: string, botName: string)  {
-    const tokenValue = token.length > 0 ? token : 'your-token-from-discord-api'
-    return `/* ${botName} generated with create-discord-bot CLI */
+export function getScript(token: string, botName: string) {
+  const tokenValue = token.length > 0 ? token : 'your-token-from-discord-api'
+  return `/* ${botName} generated with create-discord-bot CLI */
     const Discord = require('discord.js')
 	const client = new Discord.Client()
     client.on('ready', () => {
@@ -22,14 +22,14 @@ export function getScript (token: string, botName: string)  {
     client.login('${tokenValue}');`
 }
 
-export function getReadme (botName: string) {
-    return `# ${botName}
+export function getReadme(botName: string) {
+  return `# ${botName}
 		Discord Bot generated with [create-discord-bot](https://github.com/HZooly/create-discord-bot)
 
 		To get the Bot invitation link, you can use [discord-bot-invitation](https://github.com/HZooly/discord-bot-invitation)
 	`
 }
 
-export function getGitignore () {
-    return '/node_modules'
+export function getGitignore() {
+  return '/node_modules'
 }
