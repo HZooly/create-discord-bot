@@ -4,10 +4,16 @@ export function getPackage(dirName: string) {
     	"version": "0.0.1",
     	"description": "Bot created with create-discord-bot CLI",
     	"main": "bot.js",
-    	"author": "create-discord-bot",
+      "author": "create-discord-bot",
+      "scripts": {
+        "start:dev": "nodemon bot.js"
+      },
     	"dependencies": {
         	"discord.js": "^11.3.2"
-    	}
+      },
+      "devDependencies": {
+        "nodemon": "latest"
+      }
 	}`
 }
 
@@ -17,7 +23,7 @@ export function getScript(token: string, botName: string) {
     const Discord = require('discord.js')
 	const client = new Discord.Client()
     client.on('ready', () => {
-	    console.log('Bot is ready!')
+	    console.log('Bot is ready! 🤖')
     })
     client.login('${tokenValue}');`
 }

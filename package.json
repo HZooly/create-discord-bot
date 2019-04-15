@@ -24,6 +24,7 @@
     "create-discord-bot": "./dist/cli.js"
   },
   "dependencies": {
+    "@types/log-symbols": "^2.0.0",
     "log-symbols": "^2.2.0",
     "qoa": "^0.2.0",
     "validate-npm-package-name": "^3.0.0"
