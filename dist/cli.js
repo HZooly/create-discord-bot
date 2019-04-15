@@ -7,13 +7,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = __importStar(require("fs"));
 var builders_1 = require("./builders");
 var child_process_1 = require("child_process");
-var logSymbols = require('log-symbols');
-var validate = require("validate-npm-package-name");
-var qoa = require('qoa');
+var log_symbols_1 = __importDefault(require("log-symbols"));
+var validate_npm_package_name_1 = __importDefault(require("validate-npm-package-name"));
+var qoa_1 = __importDefault(require("qoa"));
 var log = console.log;
 log('Welcome to the Discord Bot Creator !');
 var questions = [
@@ -28,40 +31,40 @@ var questions = [
         handle: 'token'
     }
 ];
-qoa.prompt(questions).then(function (answer) {
-    var validated = validate(answer.botName);
+qoa_1.default.prompt(questions).then(function (answer) {
+    var validated = validate_npm_package_name_1.default(answer.botName);
     if (validated.errors !== undefined) {
         validated.errors.forEach(function (error) {
-            log(logSymbols.error + " " + error);
+            log(log_symbols_1.default.error + " " + error);
         });
         return;
     }
     var dir = answer.botName;
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
-        log(logSymbols.info + " Creating new folder...");
+        log(log_symbols_1.default.info + " Creating new folder...");
         fs.writeFile(dir + "/package.json", builders_1.getPackage(dir), function (err) {
             if (err)
-                return log(logSymbols.error + " Error at creating package.json");
+                return log(log_symbols_1.default.error + " Error at creating package.json");
         });
-        log(logSymbols.info + " Creating bot.js...");
+        log(log_symbols_1.default.info + " Creating bot.js...");
         fs.writeFile(dir + "/bot.js", builders_1.getScript(answer.token, dir), function (err) {
             if (err)
-                return log(logSymbols.error + " Error at bot.js creation");
+                return log(log_symbols_1.default.error + " Error at bot.js creation");
         });
-        log(logSymbols.info + " Generating .gitignore...");
+        log(log_symbols_1.default.info + " Generating .gitignore...");
         fs.writeFile(dir + "/.gitignore", builders_1.getGitignore(), function (err) {
             if (err)
-                return log(logSymbols.error + " Error at .gitignore creation");
+                return log(log_symbols_1.default.error + " Error at .gitignore creation");
         });
-        log(logSymbols.info + " Writing README.md...");
+        log(log_symbols_1.default.info + " Writing README.md...");
         fs.writeFile(dir + "/README.md", builders_1.getReadme(dir), function (err) {
             if (err)
-                return log(logSymbols.error + " Error at README creation");
+                return log(log_symbols_1.default.error + " Error at README creation");
         });
-        log(logSymbols.info + " Installing dependencies...");
+        log(log_symbols_1.default.info + " Installing dependencies...");
         child_process_1.exec("cd " + dir + " && npm install", function (err, stdout, stderr) {
-            log(logSymbols.success + " Done!");
+            log(log_symbols_1.default.success + " Done!");
         });
     }
 });
