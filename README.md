@@ -9,10 +9,14 @@ Tired of Googling "How to create Discord Bot"? Use this tool and easily bootstra
 ![](https://i.imgur.com/FrXL7qi.gif)
 
 ## Install
-`$ npm install -g create-discord-bot`
+```
+npm install -g create-discord-bot
+```
 
 ## Run
-`$ create-discord-bot`
+```
+create-discord-bot
+```
 
 Follow the instructions, this is easy!
 
